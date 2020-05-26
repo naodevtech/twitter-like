@@ -9,14 +9,28 @@ const app = express()
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
+// Pour récuperer les requêtes liée au req.body
+app.use(express.urlencoded({
+    extended: false
+}));
+
 
 // Route GET
 app.get('/', (req,res) => {
-    res.render('home', {
-        name: "Sylvie"
+    res.render('home')
+})
+
+app.get('/sylvie', (req, res) => {
+    res.render('sylvie', {
+        name: "Paul"
     })
 })
 
+// Routes POST
+app.post('/sylvie', (req,res) => {
+    console.log("info recu : " + req.body.name)
+    res.render('home')
+})
 
 // Application Listen (http://localhost:3000/)
 app.listen(3000, () => {
