@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/naodevtech/twitter-like#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4"
   }
 }
