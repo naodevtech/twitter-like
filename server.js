@@ -1,6 +1,8 @@
 // Importation module npm
 const express = require('express')
 const exphbs  = require('express-handlebars');
+const mysql = require('mysql')
+require('dotenv').config()
 
 // Instanciation d'Express 
 const app = express()
@@ -14,6 +16,26 @@ app.use(express.urlencoded({
     extended: false
 }));
 
+//config DB mysql with dotenv
+var connection = mysql.createConnection({
+    host     : process.env.DB_HOST,
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASS,
+    database : process.env.DB_NAME,
+    port     : process.env.DB_PORT,
+    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+});
+
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var sql = "CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname TEXT, firstname TEXT, datebirth DATE, gender TEXT, city TEXT, email TEXT, password TEXT, username TEXT, avatar TEXT)";
+    connection.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("Table created");
+      connection.end()
+    });
+});
 
 // Route GET
 app.get('/', (req,res) => {
