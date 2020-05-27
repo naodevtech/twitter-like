@@ -20,17 +20,19 @@ app.get('/', (req,res) => {
     res.render('home')
 })
 
-app.get('/sylvie', (req, res) => {
-    res.render('sylvie', {
-        name: "Paul"
-    })
+app.get('/login', (req, res) => {
+    res.render('login')
 })
 
-// Routes POST
-app.post('/sylvie', (req,res) => {
-    console.log("info recu : " + req.body.name)
-    res.render('home')
+app.get('/signup', (req, res) => {
+    res.render('signup')
 })
+
+// Gestion de cas d'erreur
+app.get('*', (req,res) => {
+    res.send('ERROR 404')
+})
+
 
 // Application Listen (http://localhost:3000/)
 app.listen(3000, () => {
