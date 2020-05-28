@@ -1,0 +1,109 @@
+@import "../base/_reset.css";
+@import "../base/_typography.css";
+
+.container{
+    height: 100vh;
+    display: flex;
+}
+
+.side-left{
+    height: 100%;
+    width: 50%;
+    background-color: #70C9F7;
+}
+
+.side-right{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-right img {
+    height: 1.5em;
+}
+
+.side-right h3{
+    font-size: 1.1em;
+    font-weight: 700;
+    text-align: center;
+}
+
+form{
+    /* background-color: red; */
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input{
+    height: 2.8rem;
+    width: 50%;
+    margin-bottom: 1rem;
+    outline: none;
+    font-size: 0.9em;
+    color: #70C9F7;
+    padding-left: 1em;
+    font-weight: 500;
+    background-color: #F5F8FA;
+    border: none;
+    border-bottom: 2px solid grey;
+}
+
+input:focus{
+    border-bottom: 2px solid #70C9F7;
+}
+
+input:focus::placeholder{
+    color: #70C9F7;
+}
+
+.btn-connectUp{
+    height: 2.5rem;
+    width: 53%;
+    border-radius: 4rem;
+    background-color: #1EA1F2;
+    opacity: 70%;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 700;
+    border: 1px solid #1EA1F2;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    outline: none;
+}
+
+/* .btn-connectUp:hover{
+    background-color: rgba(112, 202, 247, 0.253);
+} */
+
+.btn-connectUp:active{
+    background-color: #1EA1F2;
+}
+
+a{
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-signup{
+    height: 2.5rem;
+    width: 51%;
+    border-radius: 3rem;
+    font-size: 0.9em;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition-duration: 0.3s;
+    color: #1EA1F2;
+    border: 2px solid #1EA1F2;
+}
+
+.btn-signup:hover{
+    background-color: rgb(27, 123, 184);
+}

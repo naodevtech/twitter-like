@@ -45,7 +45,9 @@ app.get('/', (req,res) => {
 })
 
 app.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', {
+        style: '/css/layouts/login.css'
+    })
 })
 
 app.get('/signup', (req, res) => {
