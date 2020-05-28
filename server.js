@@ -39,7 +39,9 @@ connection.connect(function(err) {
 
 // Route GET
 app.get('/', (req,res) => {
-    res.render('home')
+    res.render('home', {
+        style: '/css/layouts/home.css'
+    })
 })
 
 app.get('/login', (req, res) => {

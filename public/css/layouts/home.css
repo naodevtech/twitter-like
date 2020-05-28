@@ -1,3 +1,6 @@
+@import "../base/_reset.css";
+@import "../base/_typography.css";
+
 .container{
     height: 100vh;
     display: flex;
