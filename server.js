@@ -4,7 +4,7 @@ const exphbs  = require('express-handlebars');
 const mysql = require('mysql')
 require('dotenv').config()
 
-// Instanciation d'Express 
+// Instanciation d'Express
 const app = express()
 
 // Configuration moteur de template Handlebars et express.static()
@@ -23,7 +23,8 @@ var connection = mysql.createConnection({
     password : process.env.DB_PASS,
     database : process.env.DB_NAME,
     port     : process.env.DB_PORT,
-    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+    socketPath: "/var/run/mysqld/mysqld.sock",
+    // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
 
 connection.connect(function(err) {
@@ -51,7 +52,9 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/signup', (req, res) => {
-    res.render('signup')
+    res.render('signup', {
+        style: '/css/layouts/signup.css'
+    })
 })
 
 // Gestion de cas d'erreur

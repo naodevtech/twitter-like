@@ -1,1 +1,34 @@
-<h1>Signup</h1>
+<div class='container'>
+    <div class="side-left"></div>
+    <div class="side-right">
+        <img src="/images/logo.svg" alt='logo'/>
+        <h3>Creer votre compte</h3>
+        <form>
+            <div>
+                <input type='text'placeholder='Prenom' />
+                <input type='text' placeholder='Nom de famille' />
+            </div>
+            <input type="date" id="birthday" name="birthday" value="2020-01-01">
+            <div class="box-radios">
+                <div>
+                    <input type="radio" class="GenderMasculin" value="Masculin" >
+                    <label for="Masculin">Masculin</label>
+                </div>
+                <div>
+                    <input type="radio" class="GenderFeminin" value="Feminin">
+                    <label for="Feminin">Feminin</label>
+                </div>
+
+            </div>
+            <input type='text' placeholder="Nom d'utilisateur" />
+            <input type='tel' placeholder='Votre téléphone' />
+            <input type='text' placeholder='Ville' />
+            <input type='email' placeholder=' Votre email' />
+            <input type='password' placeholder='Mot de passe' />
+            <input type='password' placeholder='Confirmer votre mot de passe' />
+
+           <button type='submit' class="btn-signup">S'inscrire</button>
+        </form>
+           <a href="/login"><button type='submit' class="btn-connectUp">Se connecter</button></a>
+    </div>
+</div>
