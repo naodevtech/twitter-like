@@ -30,20 +30,22 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = "CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname TEXT, firstname TEXT, datebirth DATE, gender TEXT, city TEXT, email TEXT, password TEXT, username TEXT, avatar TEXT)";
+    var sql = "CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname TEXT, firstname TEXT, datebirth TEXT, gender TEXT, city TEXT, email TEXT, password TEXT, username TEXT, avatar TEXT)";
     connection.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Table created");
-      connection.end()
+    //   connection.end()
     });
 });
 
 // Route GET
+
 app.get('/', (req,res) => {
     res.render('home', {
         style: '/css/layouts/home.css'
     })
 })
+
 
 app.get('/login', (req, res) => {
     res.render('login', {
@@ -57,13 +59,46 @@ app.get('/signup', (req, res) => {
     })
 })
 
+
+app.get('/dashboard', (req,res) => {
+    res.render('dashboard')
+})
+
+// Routes POST
+
+app.post('/signup', (req,res) =>{
+    test(req.body)
+    res.send('ok')
+})
+
 // Gestion de cas d'erreur
 app.get('*', (req,res) => {
     res.send('ERROR 404')
 })
 
-
 // Application Listen (http://localhost:3000/)
 app.listen(3000, () => {
     console.log('Serveur lancé sur le port 3000')
 })
+
+function test(req){
+    let user = {
+        name : req.username,
+        familyName: req.familyName,
+        birthdate: req.birthday,
+        masculin: req.masculin,
+        feminin: req.feminin,
+        username: req.username,
+        tel: req.tel,
+        city: req.city,
+        email: req.email,
+        password: req.password,
+        passwordCheck: req.passwordCheck
+    }
+    var sql = `INSERT INTO users(lastname, firstname, datebirth, gender, city, email, password, username, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.feminin}', '${user.city}', '${user.email}', '${user.password}', '${user.username}', 'Hello')`
+    connection.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("User Insert Success!");
+      connection.end()
+    });
+}
