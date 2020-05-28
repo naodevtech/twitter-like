@@ -23,8 +23,8 @@ var connection = mysql.createConnection({
     password : process.env.DB_PASS,
     database : process.env.DB_NAME,
     port     : process.env.DB_PORT,
-    socketPath: "/var/run/mysqld/mysqld.sock",
-    // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+    // socketPath: "/var/run/mysqld/mysqld.sock",
+    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
 });
 
 connection.connect(function(err) {

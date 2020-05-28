@@ -53,7 +53,7 @@ form div input {
 input{
     height: 1.6rem;
     width: 50%;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     outline: none;
     font-size: 0.9em;
     color: #70C9F7;
@@ -74,11 +74,15 @@ input{
 .box-radios div {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    padding: 0 3em 0.5em 1em;
+    font-size: 0.9em;
 }
 
 .GenderMasculin,.GenderFeminin {
     height: 80%;
     margin: 0;
+    margin-left: 1em;
 }
 
 .btn-signup{
