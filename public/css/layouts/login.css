@@ -76,12 +76,8 @@ input:focus::placeholder{
     outline: none;
 }
 
-/* .btn-connectUp:hover{
-    background-color: rgba(112, 202, 247, 0.253);
-} */
-
-.btn-connectUp:active{
-    background-color: #1EA1F2;
+.btn-connectUp:hover{
+    background-color:rgb(27, 123, 184);
 }
 
 a{
@@ -105,5 +101,5 @@ a{
 }
 
 .btn-signup:hover{
-    background-color: rgb(27, 123, 184);
+    background-color: rgba(112, 202, 247, 0.253);
 }

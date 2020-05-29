@@ -100,6 +100,11 @@ input{
     outline: none;
 }
 
+.btn-signup:hover{
+    background-color:rgb(27, 123, 184);
+}
+
+
 a{
     text-decoration: none;
     width: 100%;
@@ -121,5 +126,5 @@ a{
 }
 
 .btn-connectUp:hover{
-    background-color: rgb(27, 123, 184);
+    background-color: rgba(112, 202, 247, 0.253);
 }
