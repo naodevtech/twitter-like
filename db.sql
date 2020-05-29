@@ -1,4 +1,4 @@
-CREATE TABLE `user`(
+CREATE TABLE user(
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `lastname` text,
   `firstname` text,

@@ -1,3 +1,4 @@
+const connection = require('../config/connectionDb.js')
 class User{
     constructor(props){
         this.name = props.name
@@ -13,6 +14,14 @@ class User{
         this.passwordCheck = props.passwordCheck
     }
 
+    static create(user){
+        var sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.feminin}', '${user.city}', '${user.email}', '${user.password}', '${user.username}', 'Hello')`
+        connection.query(sql, function (err, result) {
+          if (err) throw err;
+          console.log("User Insert Success!");
+          connection.end()
+        });
+    }
 }
 
 module.exports = User
