@@ -79,7 +79,7 @@ input{
     font-size: 0.9em;
 }
 
-.GenderMasculin,.GenderFeminin {
+.gender{
     height: 80%;
     margin: 0;
     margin-left: 1em;

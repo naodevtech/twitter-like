@@ -5,26 +5,26 @@
         <h3>Créer votre compte</h3>
         <form method='POST' action='/signup'>
             <div>
-                <input type='text' name="name" placeholder='Prénom' />
-                <input type='text' name="familyName" placeholder='Nom de famille' />
+                <input type='text' name="name" placeholder='Prénom' required/>
+                <input type='text' name="familyName" placeholder='Nom de famille' required/>
             </div>
             <input type="date" id="birthday" name="birthdate" value="2020-01-01">
             <div class="box-radios">
                 <div>
-                    <input type="radio" name="masculin" class="GenderMasculin" value="Masculin" >
+                    <input type="radio" name="masculin" class="gender" value="Masculin">
                     <label for="Masculin">Masculin</label>
                 </div>
                 <div>
-                    <input type="radio" name="feminin"  class="GenderFeminin" value="Feminin">
+                    <input type="radio" name="feminin"  class="gender" value="Feminin">
                     <label for="Feminin">Féminin</label>
                 </div>
             </div>
-            <input type='text' name="username" placeholder="Nom d'utilisateur" />
-            <input type='tel' name="tel"  placeholder='Votre téléphone' />
-            <input type='text' name="city" placeholder='Ville' />
-            <input type='email'name="email"  placeholder='Votre email' />
-            <input type='password' name="password" name='password' placeholder='Mot de passe' />
-            <input type='password' name="passwordCheck" name='passwordAgain'placeholder='Confirmer votre mot de passe' />
+            <input type='text' name="username" placeholder="Nom d'utilisateur" required/>
+            <input type='tel' name="tel"  placeholder='Votre téléphone' required/>
+            <input type='text' name="city" placeholder='Ville' required/>
+            <input type='email'name="email"  placeholder='Votre email' required/>
+            <input type='password' name="password" name='password' placeholder='Mot de passe' required/>
+            <input type='password' name="passwordCheck" name='passwordAgain'placeholder='Confirmer votre mot de passe' required/>
            <button type='submit' class="btn-signup">S'inscrire</button>
         </form>
            <a href="/login"><button type='submit' class="btn-connectUp">Se connecter</button></a>
