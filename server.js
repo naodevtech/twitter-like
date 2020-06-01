@@ -16,27 +16,10 @@ app.use(express.urlencoded({
 }));
 
 app.use(require('./routes/authRoutes.js'))
+app.use(require('./routes/homeRoute.js'))
+app.use(require('./routes/dashboardRoute.js'))
+app.use(require('./routes/error404.js'))
 
-// Route GET
-
-app.get('/', (req,res) => {
-    res.render('home', {
-        style: '/css/layouts/home.css'
-    })
-})
-
-app.get('/dashboard', (req,res) => {
-    res.render('dashboard')
-})
-
-// Routes POST
-
-
-
-// Gestion de cas d'erreur
-app.get('*', (req,res) => {
-    res.send('ERROR 404')
-})
 
 // Application Listen (http://localhost:3000/)
 app.listen(3000, () => {
