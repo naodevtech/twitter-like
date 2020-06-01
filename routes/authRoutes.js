@@ -5,13 +5,15 @@ const { check, validationResult } = require('express-validator');
 
 authRouter.get('/login', (req, res) => {
     res.render('login', {
-        style: '/css/layouts/login.css'
+        style: '/css/layouts/login.css',
+        title: 'Connexion / Twitter'
     })
 })
 
 authRouter.get('/signup', (req, res) => {
     res.render('signup', {
-        style: '/css/layouts/signup.css'
+        style: '/css/layouts/signup.css',
+        title: 'Inscription / Twitter'
     })
 })
 
