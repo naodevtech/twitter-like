@@ -14,12 +14,16 @@ class User{
     }
 
     static create(user){
-        var sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${user.password}', '${user.username}', 'Hello')`
+        var sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, tel, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${user.password}', '${user.username}', ${user.tel},  'Hello')`
         connection.query(sql, function (err, result) {
           if (err) throw err;
           console.log("User Insert Success!");
-        //   connection.end()
         });
     }
+
+    // static getByEmail(user){
+    //     // select 
+    //     const sql = ``
+    // }
 }
 module.exports = User
