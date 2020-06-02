@@ -22,14 +22,16 @@ class User{
           console.log("User Insert Success!");
         });
     }
+    
     // Recherche d'un utilisateur par email
     static getUsersByEmail(user, cb){
-        var sql = `SELECT * FROM users WHERE email = '${user.email}'`
+        var sql = `SELECT * FROM users WHERE (email = '${user.email}') OR (username='${user.username}')`
         connection.query(sql, function (err, result) {
             if (err) throw err
             cb(result)
             console.log("Utilisateur trouvé via le mail : ", result)
         })
     }
+    
 }
 module.exports = User

@@ -40,7 +40,7 @@ authRouter.post('/signup',[
         if(result.length > 0){
             res.redirect('/signup')
         } else {
-            authController.createUser(req,res)
+            authController.createUser(req, res)
         }
     })
 })

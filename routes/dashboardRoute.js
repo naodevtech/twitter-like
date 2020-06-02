@@ -2,6 +2,7 @@ const express = require('express')
 const dashboardRouter = express.Router()
 const connection = require('../config/connectionDb.js')
 
+// Page Dashboard
 dashboardRouter.get('/dashboard/:username', (req,res) => {
     let array = []
     let usernameParams = req.params.username
