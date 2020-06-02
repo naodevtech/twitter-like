@@ -11,8 +11,10 @@ class User{
         this.email = props.email
         this.password = props.password
         this.passwordCheck = props.passwordCheck
+        this.results = []
     }
 
+    // Création d'un utilisateur
     static create(user){
         var sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, tel, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${user.password}', '${user.username}', ${user.tel},  'Hello')`
         connection.query(sql, function (err, result) {
@@ -20,10 +22,14 @@ class User{
           console.log("User Insert Success!");
         });
     }
-
-    // static getByEmail(user){
-    //     // select 
-    //     const sql = ``
-    // }
+    // Recherche d'un utilisateur par email
+    static getUsersByEmail(user, cb){
+        var sql = `SELECT * FROM users WHERE email = '${user.email}'`
+        connection.query(sql, function (err, result) {
+            if (err) throw err
+            cb(result)
+            console.log("Utilisateur trouvé via le mail : ", result)
+        })
+    }
 }
 module.exports = User
