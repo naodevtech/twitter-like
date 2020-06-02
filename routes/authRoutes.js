@@ -29,8 +29,8 @@ authRouter.get('/signup', (req, res) => {
         style: '/css/layouts/signup.css',
         title: 'Inscription / Twitter',
         passwordCheck: req.flash('passwordCheck'),
-        emailCheckExists: req.flash('emailCheckExists')
-        
+        emailCheckExists: req.flash('emailCheckExists'),
+        errors: req.flash('errors')
 
     })
 })
@@ -44,6 +44,7 @@ authRouter.post('/signup',[
   ],(req,res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()){
+        req.flash('errors', "Une erreur a été détéctée, le mot de passe doit contenir un minimum de 6 caractères, le numéro de téléphone doit être inscrit en chiffre et l'email doit être un email (@)")
         return res.redirect("/signup")
     } else if(req.body.password != req.body.passwordCheck){
         req.flash('passwordCheck', 'Les mots de passe ne sont pas identiques ! ')

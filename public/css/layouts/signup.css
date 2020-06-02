@@ -7,7 +7,7 @@
 }
 
 .side-left{
-    height: 110%;
+    height: 120%;
     width: 50%;
     background-color: #70C9F7;
 }
@@ -39,8 +39,9 @@
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 100px;
     margin-bottom: 20px;
+    padding: 0.5em;
 }   
 
 .box-errors h4{
