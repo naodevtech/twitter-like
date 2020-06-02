@@ -1,7 +1,6 @@
 // Importation module npm
 const express = require('express')
 const exphbs  = require('express-handlebars');
-const mysql = require('mysql')
 
 // Instanciation d'Express
 const app = express()

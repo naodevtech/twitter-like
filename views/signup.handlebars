@@ -1,6 +1,16 @@
 <div class='container'>
     <div class="side-left"></div>
     <div class="side-right">
+        {{#if passwordCheck}}
+        <div class="box-errors">
+            <h4>{{passwordCheck}}</h4>
+        </div>
+        {{/if}}
+        {{#if emailCheckExists}}
+        <div class="box-errors">
+            <h4>{{emailCheckExists}}</h4>
+        </div>
+        {{/if}}
         <img src="/images/logo.svg" alt='logo'/>
         <h3>Créer votre compte</h3>
         <form method='POST' action='/signup'>

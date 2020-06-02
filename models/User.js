@@ -1,4 +1,5 @@
 const connection = require('../config/connectionDb.js')
+
 class User{
     constructor(props){
         this.name = props.name
