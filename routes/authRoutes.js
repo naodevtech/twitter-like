@@ -17,7 +17,8 @@ authRouter.get('/login', (req, res) => {
 authRouter.get('/signup', (req, res) => {
     res.render('signup', {
         style: '/css/layouts/signup.css',
-        title: 'Inscription / Twitter'
+        title: 'Inscription / Twitter',
+        error: "Il y'a une erreur!",
     })
 })
 
@@ -30,19 +31,21 @@ authRouter.post('/signup',[
   ],(req,res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()){
-        res.redirect("/signup")
+        return res.redirect("/signup")
     } else if(req.body.password != req.body.passwordCheck){
         console.log('Mot de passe non-identique !')
-        res.redirect('/signup')
+        return res.redirect('/signup')
     }
     // Recherche si le mail d'inscription n'existe pas déjà
-    User.getUsersByEmail(req.body, (result) => {
-        if(result.length > 0){
-            res.redirect('/signup')
-        } else {
-            authController.createUser(req, res)
-        }
-    })
+    else {
+        User.getUsersByEmail(req.body, (result) => {
+            if(result.length > 0){
+                return res.redirect('/signup')
+            } else {
+                return authController.createUser(req, res)
+            }
+        })
+    }
 })
 
 module.exports = authRouter
