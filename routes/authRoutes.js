@@ -56,9 +56,9 @@ authRouter.post('/signup',[
     }
     // Recherche si le mail d'inscription n'existe pas déjà
     else {
-        User.getUsersByEmail(req.body, (result) => {
+        User.getUsersByEmailOrUsername(req.body, (result) => {
             if(result.length > 0){
-                req.flash('emailCheckExists', 'Votre adresse e-mail existe déjà !')
+                req.flash('emailCheckExists', "Votre adresse e-mail ou votre nom d'utilisateur existe déjà !")
                 return res.redirect('/signup')
             } else {
                 return authController.createUser(req, res)
@@ -70,10 +70,10 @@ authRouter.post('/signup',[
 authRouter.post('/login', (req, response) => {
     console.log(req.body.email)
     console.log(req.body.password)
-    User.getUsersByEmail(req.body, (result) => {
+    User.getUsersByEmailOrUsername(req.body, (result) => {
+        console.log(req.body.email)
         if(result.length > 0){
             console.log('trouvé')
-            console.log("Hello -> ", result[0].password)
             bcrypt.compare(req.body.password, result[0].password, function(err, res){
                 if(res){
                    return response.redirect(`/dashboard/${result[0].username}`)
@@ -84,7 +84,7 @@ authRouter.post('/login', (req, response) => {
             })
         } 
         else {
-            req.flash('userNotFound', "Il semble que votre email n'existe pas!")
+            req.flash('userNotFound', "Il semble que votre email ou votre username n'existe pas!")
             return response.redirect('/login')
         }
     })
