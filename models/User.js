@@ -18,7 +18,7 @@ class User{
     // Création d'un utilisateur
     static create(user, hashPwd) {
         console.log('PWD hash :' +  hashPwd);
-        var sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, tel, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${hashPwd}', '${user.username}', ${user.tel},  'Hello')`
+        const sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, tel, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${hashPwd}', '${user.username}', ${user.tel},  'Hello')`
         connection.query(sql, function (err, result) {
         if (err) console.log('create user : ' + err)
         console.log("Inscription de l'utilisateur réussie! ✅")
@@ -27,7 +27,7 @@ class User{
     
     // Recherche d'un utilisateur par email
     static getUsersByEmailOrUsername(user, cb){
-        var sql = `SELECT * FROM users WHERE (email = '${user.email}') OR (username='${user.username || user.email}')`
+        const sql = `SELECT * FROM users WHERE (email = '${user.email}') OR (username='${user.username || user.email}')`
         connection.query(sql, function (err, result) {
             if (err) console.log('getUsersByEmail : ' + err)
             cb(result)

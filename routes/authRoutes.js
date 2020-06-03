@@ -45,7 +45,7 @@ authRouter.post('/signup',[
     check('tel').isNumeric(),
     check('email').isEmail(),
   ],(req,res) => {
-    var exp = new RegExp("^[a-zA-Z0-9]{3,8}$","g");
+    const exp = new RegExp("^[a-zA-Z0-9]{3,8}$","g");
     const errors = validationResult(req);
     // Si les check ne sont pas vérifié
     if (!errors.isEmpty()){
