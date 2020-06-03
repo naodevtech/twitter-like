@@ -18,25 +18,21 @@ class User{
     // Création d'un utilisateur
     static create(user, hashPwd) {
         console.log('PWD hash :' +  hashPwd);
-        var sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, 
-                    username, tel, avatar)
-                    VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', 
-                    '${user.city}', '${user.email}', '${hashPwd}', '${user.username}', ${user.tel},  'Hello')`
+        var sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, tel, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${hashPwd}', '${user.username}', ${user.tel},  'Hello')`
         connection.query(sql, function (err, result) {
-        if (err) console.log('create user : ' + err) ;
-        console.log("User Insert Success!");
-        });
+        if (err) console.log('create user : ' + err)
+        console.log("Inscription de l'utilisateur réussie! ✅")
+        })
     }
     
     // Recherche d'un utilisateur par email
     static getUsersByEmail(user, cb){
         var sql = `SELECT * FROM users WHERE (email = '${user.email}') OR (username='${user.username}')`
         connection.query(sql, function (err, result) {
-            if (err) console.log('getUsersByEmail : ' + err) ;
+            if (err) console.log('getUsersByEmail : ' + err)
             cb(result)
             console.log("Utilisateur trouvé via le mail : ", result)
         })
     }
-    
 }
 module.exports = User
