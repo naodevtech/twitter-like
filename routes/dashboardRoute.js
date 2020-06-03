@@ -10,7 +10,7 @@ dashboardRouter.get('/dashboard/:username', (req,res) => {
     connection.query(sql, function (err, result) {
       if (err) throw err;
       usersInfos.push(...result)
-      console.log('Utilisateur infos envoyé sur le dashboard : ' , usersInfos[0].id)
+      console.log('infos utilisateur envoyé sur le dashboard ▶️ : ' , usersInfos[0])
       res.render('dashboard', {
         style: '/css/layouts/dashboard.css',
         title: 'Accueil / Twitter',
