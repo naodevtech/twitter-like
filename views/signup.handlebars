@@ -16,6 +16,11 @@
             <h4>{{errors}}</h4>
         </div>
         {{/if}}
+        {{#if usernameInvalid}}
+        <div class="box-errors">
+            <h4>{{usernameInvalid}}</h4>
+        </div>
+        {{/if}}
         <img src="/images/logo.svg" alt='logo'/>
         <h3>Créer votre compte</h3>
         <form method='POST' action='/signup'>

@@ -34,6 +34,7 @@ authRouter.get('/signup', (req, res) => {
         passwordCheck: req.flash('passwordCheck'),
         emailCheckExists: req.flash('emailCheckExists'),
         errors: req.flash('errors'),
+        usernameInvalid: req.flash('usernameInvalid')
     })
 })
 
@@ -44,6 +45,7 @@ authRouter.post('/signup',[
     check('tel').isNumeric(),
     check('email').isEmail(),
   ],(req,res) => {
+    var exp = new RegExp("^[a-zA-Z0-9]{3,8}$","g");
     const errors = validationResult(req);
     // Si les check ne sont pas vérifié
     if (!errors.isEmpty()){
@@ -53,6 +55,9 @@ authRouter.post('/signup',[
         req.flash('passwordCheck', 'Les mots de passe ne sont pas identiques ! ')
         console.log('Mot de passe non-identique ! ❌')
         return res.redirect('/signup')
+    } else if(!exp.test(req.body.username)){
+        req.flash('usernameInvalid', "Nom d'utilisateur incorrect ! Le nom d'utilisateur ne peut contenir que des caractères [A-Z], [a-z] et [0-9]")
+        res.redirect('/signup')
     }
     // Recherche si le mail d'inscription n'existe pas déjà
     else {
