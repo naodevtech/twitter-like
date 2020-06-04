@@ -1,18 +1,13 @@
 <div class='container'>
     <div class="side-left"></div>
-    <div class="side-right">
-        {{#if errorPassword}}
-        <div class="box-errors">
-            <h4>{{errorPassword}}</h4>
-        </div>
-        {{/if}}
-        {{#if userNotFound}}
-        <div class="box-errors">
-            <h4>{{userNotFound}}</h4>
-        </div>
-        {{/if}}
-        <img src="/images/logo.svg" alt='logo'/>
+    <div class="side-right"><img src="/images/logo.svg" alt='logo'/>
         <h3>Se connecter à Twitter</h3>
+
+        {{#if messages.error}}
+            <h3 class="error">{{ messages.error }}</h3>
+        {{/if}}
+        
+        
         <form method='POST' action='/login'>
             <input type='text' name="email" placeholder='Téléphone, email ou nom ...' />
             <input type='password' name="password" placeholder='Mot de passe' required />

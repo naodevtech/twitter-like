@@ -5,14 +5,8 @@ const authController = require('../controllers/authController');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/User.js')
 const flash = require('connect-flash');
-const session = require('express-session')
-const bcrypt = require('bcrypt');
-
-authRouter.use(session({
-	secret:'happy dog',
-	saveUninitialized: true,
-	resave: true
-}));
+const passport = require("passport");
+const isAuth = require("../middleware/isAuth");
 
 authRouter.use(flash());
 
@@ -72,25 +66,25 @@ authRouter.post('/signup',[
     }
 })
 
-authRouter.post('/login', (req, response) => {
-    User.getUsersByEmailOrUsername(req.body, (result) => {
-        console.log(req.body.email)
-        if(result.length > 0){
-            console.log('trouvé')
-            bcrypt.compare(req.body.password, result[0].password, function(err, res){
-                if(res){
-                   return response.redirect(`/dashboard/${result[0].username}`)
-                } else{
-                    req.flash('errorPassword', 'Votre mot de passe est incorrect ! ')
-                    return response.redirect('/login')
-                }
-            })
-        } 
-        else {
-            req.flash('userNotFound', "Il semble que votre email ou votre username n'existe pas!")
-            return response.redirect('/login')
-        }
+authRouter.post(
+    "/login",
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/login",
+      failureFlash: true,
     })
+);
+
+authRouter.get(
+    '/', isAuth,
+    (req, res) => {
+        username = req.user.username
+    res.redirect('/dashboard/' + username)
 })
+
+authRouter.get('/logout', (request, response) => {
+    request.logout();
+    response.redirect('/home');
+});
 
 module.exports = authRouter

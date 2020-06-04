@@ -154,3 +154,21 @@ nav{
     width: 35%;
     border-left: 1.3px solid rgba(172, 172, 172, 0.432);
 }
+
+.btn-logout{
+    height: 2.5rem;
+    width: 260% !important;
+    border-radius: 3rem;
+    font-size: 0.9em;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition-duration: 0.3s;
+    color: #1EA1F2 !important;
+    border: 2px solid #1EA1F2 !important;
+    background-color: white !important;
+}
+
+.btn-logout:hover{
+    background-color: rgba(112, 202, 247, 0.253) !important;
+}
