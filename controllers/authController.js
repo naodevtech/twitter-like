@@ -9,6 +9,7 @@ exports.createUser = (req,res) => {
         if (err) console.log('hash : ' + err) ;
         User.create(req.body, hashPwd)
         // Redirection vers le dashboard
-        res.redirect(`/dashboard/${user.username}`)
+        console.log('Redirection vers le dashboard') ;
+        res.redirect(`/login`)
     })
 }
