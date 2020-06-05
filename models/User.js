@@ -30,7 +30,17 @@ class User{
         })
     }
     
+
     // Recherche d'un utilisateur par email
+    static getUsersByEmailOrUsername(user, cb){
+        const sql = `SELECT * FROM users WHERE (email = '${user.email}') OR (username='${user.username || user.email}')`
+        connection.query(sql, function (err, result) {
+            if (err) console.log('getUsersByEmail : ' + err)
+            cb(result)
+            console.log("Utilisateur trouvé via le mail ou le username ▶️ : ", result)
+        })
+    }
+
     static getIdentifiantParams (identifiant, callback) {
         var sql = `SELECT * FROM users WHERE (email = '${identifiant}') OR (username ='${identifiant}') OR (tel = '${identifiant}')`
         connection.query(sql, function(err, result) {
