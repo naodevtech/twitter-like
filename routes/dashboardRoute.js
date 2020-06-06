@@ -9,10 +9,10 @@ dashboardRouter.get('/dashboard/:username', isAuth, (req,res) => {
   console.log('userName en session : ' + user.username);
 
   if (user.username != userNameParam) {
-    console.log('Pas le même utilisateur que la session ❌' );
-    
+    console.log('Pas le même utilisateur que la session ❌' );    
     res.redirect('/logout');
   } else {
+    console.log(user.avatar)
     res.render('dashboard', 
       {
         style: '/css/layouts/dashboard.css',
@@ -20,6 +20,7 @@ dashboardRouter.get('/dashboard/:username', isAuth, (req,res) => {
         username: user.username,
         firstname: user.firstname,
         lastname: user.lastname,
+        avatar: user.avatar
       } 
     )
   }
