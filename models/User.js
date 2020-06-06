@@ -20,11 +20,11 @@ class User{
         console.log('user.tel :' +  user.tel);
         const sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, tel, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${hashPwd}', '${user.username}', ${user.tel},  'Hello')`
         connection.query(sql, function (err, result) {
-        if (err) {
-            console.log('erreur create user ❌ : ' + err)
-        } else {
-            console.log("Inscription de l'utilisateur réussie! ✅")
-        }
+            if (err) {
+                console.log('erreur create user ❌ : ' + err)
+            } else {
+                console.log("Inscription de l'utilisateur réussie! ✅")
+            }
 
         })
     }

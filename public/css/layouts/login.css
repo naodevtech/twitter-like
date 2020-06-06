@@ -20,6 +20,20 @@
     justify-content: center;
 }
 
+.box-success{
+    background-color: rgb(216, 248, 215);
+    height: 10%;
+    width: 80%;
+    border: 1px solid rgb(150, 199, 130);
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 0.5em;
+}
+
 .box-errors{
     background-color: #F8D7DA;
     height: 10%;
@@ -33,6 +47,11 @@
     margin-bottom: 20px;
     padding: 0.5em;
 }   
+
+.box-success h4{
+    color: rgb(94, 94, 94);
+    font-weight: 400;
+}
 
 .box-errors h4{
     color: #721C24;

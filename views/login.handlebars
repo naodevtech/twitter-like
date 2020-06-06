@@ -6,6 +6,11 @@
             <h4>{{messages.error}}</h4>
         </div>
         {{/if}}
+        {{#if sucessSignup}}
+        <div class="box-success">
+            <h4>{{sucessSignup}}</h4>
+        </div>
+        {{/if}}
         <img src="/images/logo.svg" alt='logo'/>
         <h3>Se connecter à Twitter</h3>
         <form method='POST' action='/login'>
