@@ -36,14 +36,14 @@
             <h3>Plus</h3>
         </div>
         <button type="submit">Tweeter</button>
-        <a href="/logout"><button type='submit' class="btn-logout">Logout</button></a>
+        {{!-- <a href="/logout"><button type='submit' class="btn-logout">Logout</button></a> --}}
     </div>
     <div class="account">
         <img class="img_profile"src="/images/icons_navbar/profile.png" alt='profileImg' />
-        <div class="account-infos">
+        <a href="/logout"><div class="account-infos">
             <h5>{{firstname}} {{lastname}} </h5>
             <h6>@{{username}}</h6>
-        </div>
+        </div></a>
         <img class='icon_arrow' src='/images/icons_navbar/svg16.svg' alt='icon' />
     </div>
 </nav>

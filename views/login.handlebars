@@ -1,13 +1,13 @@
 <div class='container'>
     <div class="side-left"></div>
-    <div class="side-right"><img src="/images/logo.svg" alt='logo'/>
-        <h3>Se connecter à Twitter</h3>
-
+    <div class="side-right">
         {{#if messages.error}}
-            <h3 class="error">{{ messages.error }}</h3>
+        <div class="box-errors">
+            <h4>{{messages.error}}</h4>
+        </div>
         {{/if}}
-        
-        
+        <img src="/images/logo.svg" alt='logo'/>
+        <h3>Se connecter à Twitter</h3>
         <form method='POST' action='/login'>
             <input type='text' name="email" placeholder='Téléphone, email ou nom ...' />
             <input type='password' name="password" placeholder='Mot de passe' required />

@@ -66,25 +66,21 @@ authRouter.post('/signup',[
     }
 })
 
-authRouter.post(
-    "/login",
-    passport.authenticate("local", {
+authRouter.post("/login", passport.authenticate("local", {
       successRedirect: "/",
       failureRedirect: "/login",
       failureFlash: true,
-    })
-);
+    }
+));
 
-authRouter.get(
-    '/', isAuth,
-    (req, res) => {
-        username = req.user.username
-    res.redirect('/dashboard/' + username)
+authRouter.get('/', isAuth, (req, res) => {
+    username = req.user.username
+    res.redirect(`dashboard/${username}`)
 })
 
-authRouter.get('/logout', (request, response) => {
-    request.logout();
-    response.redirect('/home');
+authRouter.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/home');
 });
 
 module.exports = authRouter

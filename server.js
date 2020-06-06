@@ -24,7 +24,7 @@ app.use(express.urlencoded({
 }));
 
 // MIDDLEWARES
-app.use(logger("dev"));
+// app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(flash());
 
