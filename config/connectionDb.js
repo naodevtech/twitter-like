@@ -14,14 +14,10 @@ var connection = mysql.createConnection({
 
 // Connction à la base de données
 connection.connect(function(err) {
-    if (err) throw err;
-    const sql = "CREATE TABLE IF NOT EXISTS users(id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname TEXT, firstname TEXT, birthdate DATE, gender TEXT, city TEXT, email TEXT, password TEXT, username TEXT, tel BIGINT, avatar TEXT)"
-    connection.query(sql, function (err, result) {
-        if (err) {
-            console.log("Table créée ou déjà existante! ✅");
-        }
-      });
-    console.log("Connecté à la database ! ✅");
+    if(err){
+        console.log("Erreur lors de la connexion à la db ❌ : ", err)
+    }
+    console.log('Connecté à la database ✅')
 });
 
 module.exports = connection

@@ -5,7 +5,7 @@ const User = require("../models/User");
 const initialize = (passport) => {
   const authenticateUser = (email, password, done) => {
     User.getIdentifiantParams(email, async (error, user) => {
-        // console.log('user : ' + user)
+        console.log('user : ' + user)
       if (error) {
         return done(error);
       }
@@ -26,14 +26,12 @@ const initialize = (passport) => {
     )
   );
 
-  passport.serializeUser((user, done) => {
-    done(null, user.id);
+  passport.serializeUser(function(user, done) {
+    done(null, user);
   });
-
-  passport.deserializeUser((id, done) => {
-    User.findById(id, (error, user) => {
-      done(null, user);
-    });
+  
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
   });
 };
 

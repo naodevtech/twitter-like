@@ -39,7 +39,9 @@
         {{!-- <a href="/logout"><button type='submit' class="btn-logout">Logout</button></a> --}}
     </div>
     <div class="account">
+        {{#if avatar}}
         <img class="img_profile" src="{{avatar}}" alt='profileImg' />
+        {{/if}}
         <a href="/logout"><div class="account-infos">
             <h5>{{firstname}}{{lastname}} </h5>
             <h6>@{{username}}</h6>

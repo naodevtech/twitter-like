@@ -8,7 +8,7 @@ const isAuth = require("../middleware/isAuth");
 homeRouter.get('/home', (req,res) => {
     res.render('home', {
         style: '/css/layouts/home.css',
-        title: "Twitter. C'est ce qui se passe dans le monde"
+        title: "Twitter. C'est ce qui se passe dans le monde",
     })
 })
 

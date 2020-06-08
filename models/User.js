@@ -18,7 +18,7 @@ class User{
     // Création d'un utilisateur
     static create(user, hashPwd) {
         console.log('user.tel :' +  user.tel);
-        const sql = `INSERT INTO users(lastname, firstname, birthdate, gender, city, email, password, username, tel, avatar) VALUES('${user.familyName}', '${user.name}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${hashPwd}', '${user.username}', '${user.tel}',  '${user.avatar}')`
+        const sql = `INSERT INTO user(firstname, lastname, birthdate, gender, city, email, tel, username, password, avatar) VALUES('${user.name}', '${user.familyName}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${user.tel}', '${user.username}', '${hashPwd}',  '${user.avatar}')`
         connection.query(sql, function (err, result) {
             if (err) {
                 console.log('erreur create user ❌ : ' + err)
@@ -29,10 +29,9 @@ class User{
         })
     }
     
-
     // Recherche d'un utilisateur par email
     static getUsersByEmailOrUsername(user, cb){
-        const sql = `SELECT * FROM users WHERE (email = '${user.email}') OR (username='${user.username || user.email}')`
+        const sql = `SELECT * FROM user WHERE (email = '${user.email}') OR (username='${user.username || user.email}')`
         connection.query(sql, function (err, result) {
             if (err) console.log('getUsersByEmail ❌: ' + err)
             cb(result)
@@ -41,17 +40,17 @@ class User{
     }
 
     static getIdentifiantParams (identifiant, callback) {
-        var sql = `SELECT * FROM users WHERE (email = '${identifiant}') OR (username ='${identifiant}') OR (tel = '${identifiant}')`
+        var sql = `SELECT * FROM user WHERE (email = '${identifiant}') OR (username ='${identifiant}') OR (tel = '${identifiant}')`
         connection.query(sql, function(err, result) {
             if (err) console.log('getIdentifiantParams ❌: ' + err) ;
             const user = result[0];
-            console.log("getIdentifiantParams trouvé via le mail ✅ : ", user)
+            // console.log("getIdentifiantParams trouvé via le mail ✅ : ", user)
             callback(null, user)
         })
     }
 
     static findById(id, done) {
-        const query = `SELECT * FROM users WHERE id = '${id}';`;
+        const query = `SELECT * FROM user WHERE id = '${id}';`;
         connection.query(query, (error, data) => {
             if (error) {
             console.error(`findById ❌ : ${err}`);
@@ -62,6 +61,16 @@ class User{
             console.log(`findById ▶️ : ${user}`);
             return done(null, user);
         });
+    }
+
+    static getAllusers(callback){
+        const sql = `SELECT * FROM user`
+        connection.query(sql, function (err, result) {
+            if (err) console.log('getAllusers ❌: ' + err)
+            // console.log(result[0])
+            callback(result)
+            // console.log("Voici tous les utilisateurs trouvés dans la database  ▶️ : ", result)
+        })
     }
 
     static async hashPassword(password) {
