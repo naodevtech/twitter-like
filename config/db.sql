@@ -51,21 +51,8 @@ INSERT INTO `messages` (`id`, `content`, `created_at`, `id_user`) VALUES
 (69, 'Hello', '2020-06-04 11:00:46', 16),
 (70, 'ZBEUB ZBEUB', '2020-06-04 11:18:12', 12);
 -- --------------------------------------------------------
---
--- Structure de la table `sessions`
---
-CREATE TABLE `sessions` (
-  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `expires` int(11) UNSIGNED NOT NULL,
-  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
--- Contenu de la table `sessions`
---
-INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('jU9ZCHgAIEvZPyarNiuQhJT0MWPkXSra', 1591440631, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}');
--- --------------------------------------------------------
---
+
+
 -- Structure de la table `user`
 --
 CREATE TABLE `user` (
@@ -90,11 +77,7 @@ CREATE TABLE `user` (
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 --
--- Index pour la table `sessions`
---
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`session_id`);
---
+
 -- Index pour la table `user`
 --
 ALTER TABLE `user`

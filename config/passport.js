@@ -5,7 +5,7 @@ const User = require("../models/User");
 const initialize = (passport) => {
   const authenticateUser = (email, password, done) => {
     User.getIdentifiantParams(email, async (error, user) => {
-        console.log('user : ' + user)
+        // console.log('user : ' + user)
       if (error) {
         return done(error);
       }

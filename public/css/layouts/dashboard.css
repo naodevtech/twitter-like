@@ -4,21 +4,29 @@
 
 .container{
     display: flex;
+    height: 98vh;
 }
 
 
 .tweetListContainer{
-    /* background-color: green; */
+    /* background-color: red; */
     width: 40%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.tweetListContainer::-webkit-scrollbar{
+    display: none;
 }
 
 .heading{
-    height: 8%;
-    /* background-color: red; */
+    background-color: white;
     display: flex;
     align-items: center;
+    padding: 1.1em;
     padding-left: 1em;
     border-bottom: 1.3px solid rgba(172, 172, 172, 0.432);
 }
@@ -29,6 +37,152 @@
     font-weight: 900;
 }
 
+.tweetActionBox{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+
+.static-form{
+    /* background-color: purple; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 20vh;
+}
+
+.box-forms{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.boxAvatar{
+    background-color: white;
+    height: 88%;
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.8em;
+}
+
+.boxAvatar img{
+    height: 3em;
+    width: 3em;
+    border-radius: 4rem;
+    cursor: pointer;
+}
+
+.static-form textarea{
+    height: 82%;
+    width: 90%;
+    border: none;
+    resize: none;
+    font-size: 1.2em;
+    padding-top: 1em;
+    padding-left: 1em;
+    outline: none;
+    color: rgb(58, 58, 58);
+}
+
+.static-form textarea::placeholder{
+    color: rgb(100, 100, 100);
+}
+
+.static-form textarea:focus::placeholder{
+    color: rgb(172, 169, 169);
+}
+
+.utils{
+    background-color: white;
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.2em;
+    padding-right: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1.3px solid rgba(172, 172, 172, 0.432);
+
+}
+
+.btn-tweetAction{
+    height: 90%;
+    border-radius: 4rem;
+    width: 18%;
+    background-color: #1EA1F2;
+    border: none;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 700;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-tweetAction:hover{
+    background-color: rgb(30, 139, 207);
+
+}
+
+.container-tweets{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: white; */
+}
+
+.box-tweet{
+    height: 30%;
+    /* background-color: yellow; */
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1.3px solid rgba(172, 172, 172, 0.432);
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+
+.box-tweet:hover{
+    background-color: rgb(240, 242, 243);
+}
+
+.box-tweetInfosUser{
+    /* background-color: red; */
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+
+.box-tweetInfosUser img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 4rem;
+    margin-right: 0.5em;
+}
+
+.box-tweetInfosUser h5{
+    color: black;
+    font-weight: 900;
+    font-size: 1em;
+}
+
+
+.box-tweetInfosUser h5:hover{
+    text-decoration: underline;
+}
+
+.box-tweetInfosUser span{
+    color: grey;
+    font-weight: 300;
+    margin-left: 0.5em;
+}
 
 .boxSearch{
     /* background-color: red; */
@@ -43,9 +197,10 @@
     background-color: #F5F8FA;
     height: 30%;
     width: 80%;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
 }
 
 .heading-suggestions{
     padding: 1em;
+    background-color: #F5F8FA;
 }

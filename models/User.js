@@ -73,6 +73,16 @@ class User{
         })
     }
 
+    static getUsersForSuggestions(callback){
+        const sql = `SELECT * FROM user LIMIT 5`
+        connection.query(sql, function (err, result) {
+            if (err) console.log('getAllTweet ❌: ' + err)
+            // console.log(result[0])
+            callback(result)
+            console.log("Voici tous les utilisateurs trouvés dans la database pour la suggestion ▶️ : ", result)
+        })
+    }
+
     static async hashPassword(password) {
         const saltRounds = 10;
         return await bcrypt.hash(password, saltRounds);
