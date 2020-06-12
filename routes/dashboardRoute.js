@@ -4,7 +4,6 @@ const isAuth = require("../middleware/isAuth")
 const tweetController = require('../controllers/tweetController.js')
 const Tweet = require('../models/Tweet.js');
 const User = require('../models/User.js')
-const usersSuggestions = []
 
 dashboardRouter.get('/dashboard/:username', isAuth, (req,res) => {
   user = req.user
@@ -16,7 +15,7 @@ dashboardRouter.get('/dashboard/:username', isAuth, (req,res) => {
     res.redirect('/logout')
   } else {
     Tweet.getAllTweets(user.username, (result) => {
-      console.log(result)
+      // console.log(result)
       res.render('dashboard', 
       {
         style: '/css/layouts/dashboard.css',
@@ -26,6 +25,7 @@ dashboardRouter.get('/dashboard/:username', isAuth, (req,res) => {
         lastname: user.lastname,
         avatar: user.avatar,
         result: [...result],
+        certified: user.certified
       } 
     )
     })

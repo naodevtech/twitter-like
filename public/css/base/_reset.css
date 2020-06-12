@@ -13,3 +13,9 @@ a{
     height: 0.7em;
     background-color: #E6ECF0;
 }
+
+
+.certification{
+    height: 1.5em !important;
+    width: 1.5em !important;
+}

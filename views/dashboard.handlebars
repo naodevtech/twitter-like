@@ -23,9 +23,15 @@
             <div class="box-tweet">
                 <div class="box-tweetInfosUser">
                     <img src="{{this.avatar}}" />
-                    <h5>{{this.username}}<span>@{{this.username}}</span></h5>
+                    <h5>{{this.username}}</h5>
+                    {{#if certified}}
+                        <img class="certification" src='/images/certified.png' alt="certification" />
+                    {{/if}}
+                    <span>@{{this.username}}</span>
                 </div>
-                <p>{{this.content}}</p>
+                <div class="box-content">
+                    <p>{{this.content}}</p>
+                </div>
             </div>
             {{/each}}
         </div>

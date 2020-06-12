@@ -18,7 +18,7 @@ class User{
     // Création d'un utilisateur
     static create(user, hashPwd) {
         console.log('user.tel :' +  user.tel);
-        const sql = `INSERT INTO user(firstname, lastname, birthdate, gender, city, email, tel, username, password, avatar) VALUES('${user.name}', '${user.familyName}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${user.tel}', '${user.username}', '${hashPwd}',  '${user.avatar}')`
+        const sql = `INSERT INTO user(firstname, lastname, birthdate, gender, city, email, tel, username, password, avatar, certified) VALUES('${user.name}', '${user.familyName}', '${user.birthdate}', '${user.gender}', '${user.city}', '${user.email}', '${user.tel}', '${user.username}', '${hashPwd}',  '${user.avatar}', 0)`
         connection.query(sql, function (err, result) {
             if (err) {
                 console.log('erreur create user ❌ : ' + err)
